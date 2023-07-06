@@ -6,7 +6,7 @@ import EmptyState from "./components/EmplyState";
 import ListingCard from "./components/listings/ListingCard";
 
 const Home = async () => {
-  const listings: any  = await getListings();
+  const listings  = await getListings();
   const currentUser = await getCurrentUser();
 
   if(listings.length === 0) {
@@ -35,7 +35,7 @@ const Home = async () => {
         >
           {
             listings.map(
-              (item:any) => {return (
+              (item) => {return (
                 <ListingCard 
                   key={item.id}
                   data={item}
