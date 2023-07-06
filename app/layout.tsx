@@ -6,8 +6,9 @@ import ToasterProvider from './providers/ToasterProvider'
 import LoginModal from './components/modals/LoginModal'
 import getCurrentUser from './actions/getCurrentUser'
 import './globals.css'
+import ClientOnly from './components/ClientOnly'
 
-const nunito = Nunito({ subsets: ['latin'] })
+const font = Nunito({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Booking App',
@@ -22,13 +23,17 @@ export default async function RootLayout({
   const currentUser = await getCurrentUser();
   return (
     <html lang="en">
-      <body className={nunito.className}>
-        <ToasterProvider />
-        <LoginModal />
-        <RegisterModal />
-        <RentModal />
-        <Navbar currentUser={currentUser}/>
-        {children}
+      <body className={font.className}>
+        <ClientOnly>
+          <ToasterProvider />
+          <LoginModal />
+          <RegisterModal />
+          <RentModal />
+          <Navbar currentUser={currentUser}/>
+        </ClientOnly>
+        <div className="pb-20 pt-28">
+          {children}
+        </div>
       </body>
     </html>
   )
