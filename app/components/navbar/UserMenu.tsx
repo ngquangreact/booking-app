@@ -75,9 +75,11 @@ const UserMenu: React.FC<UserMenuProps> = ({
                     "
                 >
                     <AiOutlineMenu />
-                    <div className="hidden md:block">
-                        <Avatar src={currentUser?.image} />
-                    </div>
+                    {currentUser && (
+                        <div className="hidden md:block">
+                            <Avatar src={currentUser?.image} />
+                        </div>
+                    )}
                 </div>
             </div>
             {isOpen && (
@@ -104,7 +106,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                                         label='My trips' 
                                     />
                                     <MenuItem
-                                        onClick={() => {}}
+                                        onClick={() => route.push("/favourites")}
                                         label='My favourites' 
                                     />
                                     <MenuItem
@@ -112,7 +114,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                                         label='My reservations' 
                                     />
                                     <MenuItem
-                                        onClick={() => {}}
+                                        onClick={() => route.push("/properties")}
                                         label='My properties' 
                                     />
                                     <MenuItem
