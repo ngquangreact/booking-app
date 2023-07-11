@@ -54,7 +54,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                         cursor-pointer
                     "
                 >
-                    Airbnb your home
+                    Up booking your home
                 </div>
                 <div
                     onClick={toggleOpen}
