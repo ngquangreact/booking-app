@@ -2,8 +2,8 @@
   "name": "booking-app",
   "version": "0.1.0",
   "private": true,
-  "postinstall": "prisma generate",
   "scripts": {
+    "postinstall": "prisma generate",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
